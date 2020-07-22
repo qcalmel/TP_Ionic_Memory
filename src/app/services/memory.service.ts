@@ -14,37 +14,38 @@ export class MemoryService {
   private memoryCards: MemoryCardInterface[] = [
     {
       cardNumber: 0,
-      image: '/img/cards/0.png',
-      flipped: false,
+      image: '/assets/img/cards/0.png',
+      flipped: true,
     },
     {
       cardNumber: 1,
-      image: '/img/cards/1.png',
-      flipped: false,
+      image: '/assets/img/cards/1.png',
+      flipped: true,
     },
     {
       cardNumber: 2,
-      image: '/img/cards/2.png',
-      flipped: false,
+      image: '/assets/img/cards/2.png',
+      flipped: true,
     },
     {
       cardNumber: 3,
-      image: '/img/cards/3.png',
-      flipped: false,
+      image: '/assets/img/cards/3.png',
+      flipped: true,
     },
     {
       cardNumber: 4,
-      image: '/img/cards/4.png',
-      flipped: false,
+      image: '/assets/img/cards/4.png',
+      flipped: true,
     },
     {
       cardNumber: 5,
-      image: '/img/cards/5.png',
-      flipped: false,
+      image: '/assets/img/cards/5.png',
+      flipped: true,
     },
   ];
-
   private shuffle(){
+    this.memoryCards = this.memoryCards.concat(this.memoryCards)
+
     let temp;
     let randomPos;
 

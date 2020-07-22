@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-label slot="start">{{tryCount}} coups</ion-label>
+    <ion-title>Jeu memory</ion-title>
+    <ion-label slot="end">{{pairComplete}}/{{memoryCardList.length/2}}</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+<ion-grid>
+  <ion-row>
+    <ion-col *ngFor='let card of memoryCardList; let pos = index' (click)='revealCard(pos)' size="4">
+      <ion-card><ion-img [src]="card.flipped?card.image:'/assets/img/question-mark.png' "></ion-img></ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+    
+  
+
+</ion-content>

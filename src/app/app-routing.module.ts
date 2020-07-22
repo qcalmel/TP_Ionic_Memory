@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'memory',
+    loadChildren: () => import('./memory/memory.module').then( m => m.MemoryPageModule)
+  },
 ];
 
 @NgModule({
