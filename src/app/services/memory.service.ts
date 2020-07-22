@@ -43,21 +43,21 @@ export class MemoryService {
       flipped: true,
     },
   ];
+  private memoryCardsPairs = this.memoryCards.concat(this.memoryCards)
   private shuffle(){
-    this.memoryCards = this.memoryCards.concat(this.memoryCards)
 
     let temp;
     let randomPos;
 
-    for (let pos in this.memoryCards){
-      randomPos = Math.floor(Math.random()* this.memoryCards.length);
-      temp = this.memoryCards[pos]
-      this.memoryCards[pos] = this.memoryCards[randomPos];
-      this.memoryCards[randomPos] = temp;
+    for (let pos in this.memoryCardsPairs){
+      randomPos = Math.floor(Math.random()* this.memoryCardsPairs.length);
+      temp = this.memoryCardsPairs[pos]
+      this.memoryCardsPairs[pos] = this.memoryCardsPairs[randomPos];
+      this.memoryCardsPairs[randomPos] = temp;
     }
   }
   getData() {
     this.shuffle();
-    return JSON.parse(JSON.stringify(this.memoryCards));
+    return JSON.parse(JSON.stringify(this.memoryCardsPairs));
   }
 }
