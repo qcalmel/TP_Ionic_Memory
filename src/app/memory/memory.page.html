@@ -1,22 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-label slot="start">{{tryCount}} coups</ion-label>
-    <ion-title>Jeu memory</ion-title>
+    <!-- Affichage en haut de la page du compteur de coups -->
+    <ion-label slot="start">{{tryCount}} coup(s)</ion-label>
+    <!-- Affichage du titre -->
+    <ion-title>MemoBean</ion-title>
+    <!-- Affichage du compteur de paires effectuées -->
     <ion-label slot="end">{{pairComplete}}/{{memoryCardList.length/2}}</ion-label>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
+  <!-- Affichage de la grille contenant les cartes -->
 <ion-grid>
   <ion-row>
+    <!-- Boucle qui va afficher toute les cartes du tableau dans des colonnes 
+      et definition de la fonction qui va être utilisée lors du clic sur une carte-->
     <ion-col *ngFor='let card of memoryCardList; let pos = index' (click)='revealCard(pos)' size="4">
-      <ion-card mode='md'><ion-img [src]="card.flipped?card.image:'/assets/img/question-mark.png' "></ion-img></ion-card>   
+      <!-- Définition de la clé qui va permettre l'animation de la carte -->
+      <ion-card mode='md'  [class]="card.animation?animation:''" >
+        <!-- Affichage d'une image en fonction de la valeur de la clé flipped -->
+        <ion-img [src]="card.flipped?card.image:'/assets/img/question-mark.png' "></ion-img>
+        
+      </ion-card> 
+       
+      
     </ion-col>
   </ion-row>
 </ion-grid>
-
-    
-  
-
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <!-- Affichage du bouton, en bas de page, permettant d'activer le mode triche -->
+    <ion-icon style="font-size: 20pt;" name="eye-outline" [color]="cheatMode?'primary':'default'" (click)="clickCheatMode()"></ion-icon>
+  </ion-toolbar>
+</ion-footer>
