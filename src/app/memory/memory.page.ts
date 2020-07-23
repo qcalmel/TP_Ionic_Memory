@@ -27,7 +27,6 @@ export class MemoryPage implements OnInit {
     this.memoryCardList = []
     console.log(this.memoryCardList);
     this.memoryCardList = this.memoryService.getData();
-    console.log(this.memoryCardList);
     setTimeout(() => {
       for (let card of this.memoryCardList) {
         card.flipped = false
@@ -80,7 +79,6 @@ export class MemoryPage implements OnInit {
         }
 
       }
-      console.log(this.firstClickedCard);
     }
   }
 }

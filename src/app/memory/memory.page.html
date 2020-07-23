@@ -11,7 +11,7 @@
 <ion-grid>
   <ion-row>
     <ion-col *ngFor='let card of memoryCardList; let pos = index' (click)='revealCard(pos)' size="4">
-      <ion-card><ion-img [src]="card.flipped?card.image:'/assets/img/question-mark.png' "></ion-img></ion-card>
+      <ion-card mode='md'><ion-img [src]="card.flipped?card.image:'/assets/img/question-mark.png' "></ion-img></ion-card>   
     </ion-col>
   </ion-row>
 </ion-grid>
